@@ -1,0 +1,57 @@
+<div id="sv" hidden role="dialog" aria-modal="true" aria-labelledby="svTitle">
+    <div class="review-window">
+      <section class="review-gallery">
+        <div class="review-gallery-header"><span>INDEX 00 / FINISHED PRINT</span><span>RENDER COMPLETE <i class="review-dot"></i></span></div>
+        <div class="review-image-stage"><div class="review-paper"><img id="svi" alt="Finished image export preview"></div></div>
+        <div class="review-gallery-footer"><span>IMAGE REVIEW / ORIGINAL ASPECT RATIO</span><span>01 — EXPORT</span></div>
+      </section>
+      <aside class="review-sidebar">
+        <div class="review-top"><span>05 / SAVE IMAGE</span><button id="svx" type="button" aria-label="Close final image preview">CLOSE ×</button></div>
+        <h2 id="svTitle">YOUR PRINT<br>IS READY<span class="review-period">.</span></h2>
+        <p>Review your image inside the print frame, then save the full-resolution artwork to your device.</p>
+        <div class="review-rule"></div>
+        <div class="review-label">OUTPUT SIZE</div><div id="svSize">— × — PX</div>
+        <div class="review-label">IMAGE FORMAT</div><div id="svType">PNG / ORIGINAL RATIO</div>
+        <div class="review-label">PROCESS</div><div>NON-DESTRUCTIVE / FULL QUALITY</div>
+        <div class="review-download"><a id="svd" class="pill" download>DOWNLOAD TO DEVICE <span>↗</span></a><small>If your browser blocks downloads, right-click or long-press the print to save.</small></div>
+      </aside>
+    </div>
+  </div>
+  <div id="exportOptions" hidden>
+    <div id="exportPreviewStage" aria-label="Artwork export preview">
+      <div class="export-art-header"><span>INDEX 00 <em>/ PRINT ROOM</em></span><span>COMPOSITION PREVIEW — 01</span></div>
+      <div class="export-preview-mat"><canvas id="exportPreviewCanvas" width="800" height="500" aria-label="Current artwork preview"></canvas><span id="exportEmptyPreview" hidden>PREVIEW UNAVAILABLE<br><small>THE IMAGE WILL STILL EXPORT</small></span></div>
+      <div class="export-art-footer"><span>PROCEDURAL IMAGE STUDY / NON-DESTRUCTIVE</span><span id="exportPreviewAspect">CURRENT ARTBOARD</span></div>
+    </div>
+    <section class="card glass" role="dialog" aria-modal="true" aria-labelledby="exportTitle">
+      <div class="export-dialog-heading"><h2 id="exportTitle">CUSTOM EXPORT</h2><button id="exportCancel" type="button" aria-label="Close export">CLOSE ×</button></div>
+      <div class="export-controls-scroll">
+        <div class="export-label">01 — FORMAT</div>
+        <div class="export-option-row" id="exportMimeButtons"><button type="button" class="on" data-mime="image/png">PNG</button><button type="button" data-mime="image/jpeg">JPG</button></div>
+        <select id="exportFormat" aria-label="Image file format"><option value="image/png" selected>PNG · lossless</option><option value="image/jpeg">JPEG · smaller file</option></select>
+        <div class="export-rule"></div>
+        <div class="export-label">02 — SIZE (PX)</div>
+        <div id="exportSizeButtons" class="export-size-options">
+          <button type="button" data-mp="0">SCREEN SIZE <span id="exportSizeScreen">— × —</span></button>
+          <button type="button" data-mp="2">STANDARD / 2 MP <span>2M</span></button>
+          <button type="button" data-mp="4">LARGE / 4 MP <span>4M</span></button>
+          <button type="button" data-mp="8">FINE PRINT / 8 MP <span>8M</span></button>
+          <button type="button" class="on" data-mp="16">MAXIMUM / 16 MP <span>16M</span></button>
+        </div>
+        <select id="exportResolution" aria-label="Output resolution"><option value="0">Screen size · current pixels</option><option value="2">Standard · 2 MP</option><option value="4">Large · 4 MP</option><option value="8">Fine print · 8 MP</option><option value="16" selected>Maximum · up to 16 MP</option></select>
+        <div class="export-rule"></div>
+        <div class="export-label">03 — PRINT TEXTURE</div>
+        <label class="export-grain-label" for="exportGrain">ADDITIONAL GRAIN <output id="exportGrainValue">0%</output></label>
+        <input type="range" id="exportGrain" min="0" max="100" value="0" step="1" aria-label="Export grain amount">
+        <div class="export-hint">Optional fine film grain, added to the final image only.</div>
+        <div class="export-rule"></div>
+        <div class="export-label">04 — OUTPUT DETAILS</div>
+        <div class="export-spec"><span id="exportSpecDims">— × — PX</span><span id="exportSpecFormat">PNG / SRGB</span><span id="exportSpecRatio">ARTBOARD / —</span></div>
+        <div class="export-hint">Image stays in its original composition. Final resolution depends on your GPU limits.</div>
+      </div>
+      <div class="export-download-area"><button id="exportStart" type="button" class="on">RENDER IMAGE <span>↗</span></button><div>RENDER → REVIEW → DOWNLOAD TO DEVICE</div></div>
+    </section>
+  </div>
+  <input type="file" id="file" accept="image/*" hidden>
+  <input type="file" id="imp_f" accept="image/*" hidden>
+  <input type="file" id="camera_f" accept="image/*" capture="environment" hidden>

@@ -1,0 +1,113 @@
+<aside id="extra" class="ui glass" aria-label="Material studio controls" hidden>
+    <div class="side-head compact"><div class="side-head-spacer" aria-hidden="true"></div><button id="sidebarClose" type="button" title="Collapse sidebar" aria-label="Close studio settings">×</button></div>
+    <div class="studio-reset"><button id="resetStudio" type="button" title="Clear the current artwork and restore all studio defaults">reset studio to defaults</button></div>
+<details class="side-group" open><summary><span>01</span> SURFACE & COLOUR <b>+</b></summary>
+      <div class="side-content">    <div id="textures">
+      <div class="menu-row"><span class="label">surface</span><button class="choice on" data-x="0">clean</button><button class="choice" data-x="1">grain</button><button class="choice" data-x="2">moire</button><button class="choice" data-x="3">chem</button></div>
+      <div class="menu-row" style="margin-top:8px"><span class="label">tone</span><button class="swatch" data-p="silver" style="--swatch:#d6d0ce"><i></i>silver</button><button class="swatch on" data-p="ghost" style="--swatch:#b9addf"><i></i>ghost</button><button class="swatch" data-p="mineral" style="--swatch:#a9cfc0"><i></i>mineral</button><button class="swatch" data-p="cobalt" style="--swatch:#79aee8"><i></i>cobalt</button><button class="swatch" data-p="oxblood" style="--swatch:#c77c86"><i></i>oxblood</button><button class="swatch" data-p="slate" style="--swatch:#91a8c0"><i></i>slate</button></div>
+    </div>    <div id="blends"><div class="menu-row"><label class="label" for="blendMode">blend mode</label><select id="blendMode" class="menu-select" aria-label="Thread blending mode"></select></div><label class="menu-control" for="blendOpacity"><span>Thread opacity</span><output id="blendOpacityValue">100%</output><input id="blendOpacity" type="range" min="0" max="100" value="100"></label><p class="cloth-help">Blend the embroidery and mesh over the cloth or photograph.</p></div></div>
+    </details>
+    <details class="side-group" open><summary><span>02</span> GEOMETRY & STITCH <b>+</b></summary>
+      <div class="side-content">    <div class="menu-row"><span class="label">mesh</span><button id="meshVisibility" aria-pressed="false" title="Hide the mesh while keeping your stitches">remove mesh</button><button data-mesh="hex">hex</button><button class="on" data-mesh="square">square</button><button data-mesh="diamond">diamond</button><button data-mesh="triangle">triangle</button></div>    <label class="menu-control" for="clothTension"><span>Stitch tension / gathering</span><output id="clothTensionValue">40%</output><input id="clothTension" type="range" min="0" max="100" value="40"></label><label class="menu-control" for="clothTear"><span>Fabric wear / split yarns</span><output id="clothTearValue">0%</output><input id="clothTear" type="range" min="0" max="100" value="0"></label><p class="cloth-help">Tension gently gathers the cloth around stitches. Wear adds occasional splits along the yarns. Both controls update existing embroidery; unpick repairs the surface.</p><div class="menu-row"><span class="label">stitch</span><span class="stitch-picker"><select id="stitchStyle" class="menu-select" aria-label="Embroidery stitch, choose from six styles"><option value="0">running stitch</option><option value="1">chain loop</option><option value="2">cross stitch</option><option value="3">satin leaf</option><option value="4">French knot</option><option value="5">feather stitch</option></select><span class="stitch-chevron" aria-hidden="true">⌄</span></span></div></div>
+    </details>
+    <details class="side-group" id="clothGroup" open><summary><span>03</span> CLOTH, WRINKLES & LIGHT <b>+</b></summary>
+      <div class="side-content">    <div class="menu-row"><label class="label" for="clothSurface">cloth</label><select id="clothSurface" class="menu-select" aria-label="Cloth surface"><option value="0">No cloth / image</option><option value="1" selected>Natural linen</option><option value="2">Cotton canvas</option><option value="3">Indigo denim</option><option value="4">Ivory silk satin</option><option value="5">Wine velvet</option><option value="6">Tulle net</option></select></div>
+      <div class="fabric-swatches" aria-label="Fabric materials"><button data-fabric="1" class="on">linen</button><button data-fabric="2">cotton</button><button data-fabric="3">denim</button><button data-fabric="4">silk satin</button><button data-fabric="5">velvet</button><button data-fabric="6">tulle</button></div><p id="fabricDescription" class="cloth-help"></p>
+      <label class="menu-control" for="weaveScale"><span>Yarn / weave size</span><output id="weaveScaleValue">100%</output><input id="weaveScale" type="range" min="50" max="200" value="100"></label>
+      <div class="cloth-subhead">Wrinkles & drape</div><div class="menu-row"><label class="label" for="wrinkleStyle">shape</label><select id="wrinkleStyle" class="menu-select"><option value="0">Soft drape</option><option value="1">Crumpled cloth</option><option value="2">Pressed creases</option></select></div>
+      <label class="menu-control" for="wrinkleAmount"><span>Wrinkle depth</span><output id="wrinkleAmountValue">35%</output><input id="wrinkleAmount" type="range" min="0" max="100" value="35"></label>
+      <label class="menu-control" for="wrinkleScale"><span>Fold frequency / broad to fine</span><output id="wrinkleScaleValue">40%</output><input id="wrinkleScale" type="range" min="0" max="100" value="40"></label>
+      <label class="menu-control" for="wrinkleAngle"><span>Fold direction</span><output id="wrinkleAngleValue">25°</output><input id="wrinkleAngle" type="range" min="-90" max="90" value="25"></label><button id="flattenCloth" type="button">flatten wrinkles</button>
+      <p class="cloth-help">Folds bend the weave and photograph and respond to the light position. Set depth to 0 for a flat swatch.</p><div class="cloth-subhead">Lighting</div>    <div class="menu-row"><span class="label">source</span><select id="lightPreset" class="menu-select" aria-label="Light source"><option value="0">soft studio</option><option value="1">window beam</option><option value="2">grazing light</option></select></div>    <label class="menu-control" for="lightX"><span>Light position / left - right</span><output id="lightXValue">30%</output><input id="lightX" type="range" min="0" max="100" value="30"></label>
+    <label class="menu-control" for="lightY"><span>Light position / top - bottom</span><output id="lightYValue">20%</output><input id="lightY" type="range" min="0" max="100" value="20"></label>
+    <label class="menu-control" for="lightPower"><span>Light intensity</span><output id="lightPowerValue">110%</output><input id="lightPower" type="range" min="0" max="150" value="110"></label>
+    <label class="menu-control" for="lightSoft"><span>Source softness</span><output id="lightSoftValue">55%</output><input id="lightSoft" type="range" min="0" max="100" value="55"></label>
+    <label class="menu-control" for="shadowStrength"><span>Shadow depth</span><output id="shadowStrengthValue">70%</output><input id="shadowStrength" type="range" min="0" max="100" value="70"></label></div>
+    </details>
+    <details class="side-group"><summary><span>04</span> INPUT / CAMERA <b>+</b></summary>
+      <div class="side-content">    <div class="menu-row"><span class="label">photo</span><button id="cam" data-close>camera</button><button id="pic" data-close>a photo</button><button id="phoneCamera" data-close>take photo ↗</button></div></div>
+    </details>
+    <div class="side-foot"><span><span class="side-live-dot"></span> WEBGL / LIVE</span><span>AFTR / 2026</span></div>
+  </aside>
+  <section id="labPanel" class="ui glass" aria-label="Analogue effects lab" hidden>
+    <div class="lab-head">
+      <div>
+        <div class="lab-kicker">index 00 / darkroom</div>
+        <div class="lab-title">Material process lab</div>
+        <p class="lab-copy">A dedicated space for chemistry, watercolour diffusion, inversion and wounded film. Each process builds an image like a flawed physical print, not a flat colour filter.</p>
+      </div>
+      <div class="lab-head-actions"><button id="labSheetToggle" type="button" aria-expanded="true" aria-controls="labPanel">hide controls ▾</button><button id="labClose" aria-label="Close darkroom">×</button></div>
+    </div>
+    <div class="lab-rule"></div>
+    <div class="lab-effect-picker" id="labEffectPicker">
+      <div class="lab-section-heading"><span>Choose photographic process</span><span>04 / treatments</span></div>
+      <div class="lab-picker-row">
+        <button type="button" id="labPrevFx" aria-label="Previous darkroom effect" title="Previous effect">‹</button>
+        <select id="labEffectSelect" aria-label="Select one of 4 darkroom processes">
+          <option value="3">01 / Cyanotype</option>
+          <option value="7">02 / Solarized</option>
+          <option value="8">03 / Faded archive</option>
+          <option value="18">04 / Oil canvas</option>
+        </select>
+        <button type="button" id="labNextFx" aria-label="Next darkroom effect" title="Next effect">›</button>
+      </div>
+      <button type="button" id="labBrowseFx" aria-controls="fxPresets" aria-expanded="true">Browse all 4 presets <span aria-hidden="true">▴</span></button>
+    </div>
+    <div class="fx-grid" id="fxPresets">
+      <button class="fx-preset on" data-fx="3"><b>01 / Cyanotype</b><small>Prussian blue · cyan emulsion blooms</small></button>
+      <button class="fx-preset" data-fx="7"><b>02 / Solarized</b><small>Sabattier reversal · pale edge halos</small></button>
+      <button class="fx-preset" data-fx="8"><b>03 / Faded archive</b><small>yellowed paper · faded blacks · oxidised edge</small></button>
+      <button class="fx-preset" data-fx="18"><b>04 / Oil canvas</b><small>woven canvas · painterly diffusion · tactile impasto</small></button>
+    </div>
+    <div class="lab-rule"></div>
+    <div class="lab-section-heading"><span>01 — exposure / chemistry</span><span id="labProcessNum">01 / 04</span></div>
+    <label class="lab-control" for="fxStrength"><span>Process intensity</span><output id="fxStrengthValue">82%</output><input id="fxStrength" type="range" min="0" max="100" value="82"></label>
+    <div class="lab-split">
+      <label class="lab-control" for="fxExposure"><span>Exposure</span><output id="fxExposureValue">0</output><input id="fxExposure" type="range" min="-100" max="100" value="0"></label>
+      <label class="lab-control" for="fxContrast"><span>Density / contrast</span><output id="fxContrastValue">50%</output><input id="fxContrast" type="range" min="0" max="100" value="50"></label>
+    </div>
+    <label class="lab-control" for="fxBleed"><span>Water / diffusion</span><output id="fxBleedValue">56%</output><input id="fxBleed" type="range" min="0" max="100" value="56"></label>
+    <label class="lab-control" for="fxGrain"><span>Silver grain / pigment particles</span><output id="fxGrainValue">48%</output><input id="fxGrain" type="range" min="0" max="100" value="48"></label>
+    <label class="lab-control" for="fxWear"><span>Emulsion wear / chemical damage</span><output id="fxWearValue">38%</output><input id="fxWear" type="range" min="0" max="100" value="38"></label>
+    <div class="lab-split">
+      <label class="lab-control" for="fxSoft"><span>Optical softness</span><output id="fxSoftValue">25%</output><input id="fxSoft" type="range" min="0" max="100" value="25"></label>
+      <label class="lab-control" for="fxBorder"><span>Print border</span><output id="fxBorderValue">0%</output><input id="fxBorder" type="range" min="0" max="100" value="0"></label>
+    </div>
+    <div class="lab-row"><button id="labRegenerate" title="Reseed chemical flow and grain">↻ new chemical reaction</button><button id="labCompare" title="Hold to see the untreated image">hold / before</button></div>
+    <div class="lab-rule"></div>
+    <div class="lab-section-heading"><span>02 — local darkroom brush</span><span id="labMaskStatus">full frame</span></div>
+    <div class="lab-tabs" id="labBrushModes"><button class="on" data-brush="full">entire image</button><button data-brush="paint">paint effect</button><button data-brush="erase">erase effect</button></div>
+    <div class="lab-split">
+      <label class="lab-control" for="labBrushSize"><span>Brush radius</span><output id="labBrushSizeValue">70px</output><input id="labBrushSize" type="range" min="10" max="240" value="70"></label>
+      <label class="lab-control" for="labBrushSoft"><span>Feathered edge</span><output id="labBrushSoftValue">70%</output><input id="labBrushSoft" type="range" min="0" max="100" value="70"></label>
+    </div>
+    <div class="lab-buttons"><button id="labMaskUndo">undo brush</button><button id="labMaskClear">clear mask</button><button id="labReset">reset sliders</button></div>
+    <p class="lab-muted">Paint and erase directly on the photograph. Mask strokes stay aligned in portrait 9:16 and landscape formats. These marks do not change your original image.</p>
+    <div class="lab-rule"></div>
+    <div class="lab-section-heading"><span>03 — photograph / output</span><span><span class="lab-pin"></span>GPU shader</span></div>
+    <div class="lab-row"><button id="labImport">load photograph</button><button id="labFit">image: contain</button></div>
+    <div class="lab-row export-quality-row"><span class="lab-muted">PNG export · preserve artwork ratio</span><select id="labQuality" aria-label="Export resolution"><option value="2">standard · 2 MP</option><option value="4">large · 4 MP</option><option value="8">fine print · 8 MP</option><option value="16" selected>maximum · up to 16 MP</option></select></div>
+    <div class="lab-buttons"><button id="labSave">save print ↗</button></div>
+    <div class="process-key" aria-label="Process materials"><span>silver halide</span><span>water pigment</span><span>damaged acetate</span><span>paper fibre</span></div>
+    <p class="lab-foot" id="labNote">Best with portraits, architecture, night scenes and textured archival images. Effects are procedural and non-destructive: your source image stays untouched.</p>
+  </section>
+  <div id="transformOverlay" hidden aria-label="Photo transform overlay">
+    <div id="transformBox" aria-label="Drag photo, drag corners to scale, or drag circle to rotate">
+      <span class="tf-rot-line"></span><span class="tf-handle" data-corner="rotate"></span>
+      <span class="tf-handle" data-corner="tl"></span><span class="tf-handle" data-corner="tr"></span>
+      <span class="tf-handle" data-corner="bl"></span><span class="tf-handle" data-corner="br"></span>
+      <span class="tf-center"></span>
+    </div>
+  </div>
+  <section id="transformPanel" class="ui glass" hidden aria-label="Image transform settings">
+    <div class="tf-top"><h2>Image / free transform</h2><button id="tfExpand" type="button" aria-expanded="false">advanced ▴</button><button id="tfClose" aria-label="Close transform editor">×</button></div>
+    <p class="tf-help">Drag the image to reposition · drag a corner to scale · drag the blue circle to rotate. Pinch with two fingers on touchscreens.</p>
+    <div class="tf-actions"><button id="tfFit" class="on">Fit</button><button id="tfFill">Fill</button><button id="tfActual">1:1</button></div>
+    <label class="tf-value" for="tfScale"><span>Size · relative to Fit</span><output id="tfScaleValue">100%</output><input id="tfScale" type="range" min="5" max="600" step="1" value="100"></label>
+    <label class="tf-value" for="tfAngle"><span>Rotation</span><output id="tfAngleValue">0°</output><input id="tfAngle" type="range" min="-180" max="180" step="1" value="0"></label>
+    <div class="tf-numeric"><label>Position X (%)<input id="tfPosX" type="number" min="-300" max="400" step="0.1" value="50"></label><label>Position Y (%)<input id="tfPosY" type="number" min="-300" max="400" step="0.1" value="50"></label></div>
+    <div class="tf-actions"><button id="tfFlipX">Flip H</button><button id="tfFlipY">Flip V</button><button id="tfCenter">Center</button></div>
+    <div class="tf-actions"><button id="tfRotateLeft">↶ 90°</button><button id="tfRotateRight">↷ 90°</button><button id="tfReset">Reset</button></div>
+    <p class="tf-help">Live WebGL transformation · non-destructive · included in 9:16 exports. Arrow keys nudge; Shift + arrows move faster; mouse wheel zooms over the canvas.</p>
+    <button id="tfDone" class="on">Done transforming ✓</button>
+  </section>

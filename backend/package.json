@@ -1,0 +1,22 @@
+{
+  "name": "index00-backend",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "tsx src/server.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "typescript": "~5.8.3",
+    "tsx": "^4.19.0",
+    "@types/express": "^5.0.0",
+    "@types/cors": "^2.8.0",
+    "@types/node": "^22.0.0"
+  }
+}

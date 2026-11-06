@@ -1,0 +1,15 @@
+**/node_modules/
+**/dist/
+.env
+.DS_Store
+*.log
+
+# Build artifacts and OS files
+**/node_modules/
+**/dist/
+**/*.tsbuildinfo
+**/test-results/
+*.zip
+.env*
+!.env.example
+.vscode/

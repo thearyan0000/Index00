@@ -1,0 +1,17 @@
+{
+  "name": "index00-fullstack",
+  "private": true,
+  "version": "1.1.0",
+  "scripts": {
+    "dev": "concurrently -k -n FRONTEND,API -c cyan,green \"npm --prefix frontend run dev\" \"npm --prefix backend run dev\"",
+    "build": "npm --prefix frontend run build",
+    "start": "npm --prefix backend run start",
+    "typecheck": "npm --prefix frontend run typecheck && npm --prefix backend run typecheck",
+    "preview:offline": "node scripts/serve-preview.mjs",
+    "build:preview": "node scripts/build-preview.mjs",
+    "test": "node --test scripts/*.test.mjs"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  }
+}
